@@ -5,7 +5,7 @@ peníze = int(input('Mám u sebe 1-1000 zlaťáků: '))
 
 if peníze == 0:
     print('tak to nás mrzí, ale zadarmo ti nic nedáme. zkus přijít jindy.')
-if peníze >= 1 and peníze <= 10: 
+elif peníze >= 1 and peníze <= 10: 
     print('pro tebe máme na výběr čokoládové žabky nebo bertíkovy fazolky!')
 elif peníze >=11 and peníze <=100:
     print('můžeš si u nás vybrat z těchto devíti prstenů!')
