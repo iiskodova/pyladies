@@ -1,9 +1,8 @@
-
 from random import randrange
 cislo = randrange(3)
 
 
-tah_cloveka = str(input('Zadej svůj tah, kámen, nůžky nebo papír?: '))
+tah_cloveka = (input('Zadej svůj tah, kámen, nůžky nebo papír?: '))
 
 if cislo == 0:
     tah_pocitace = 'kámen'
