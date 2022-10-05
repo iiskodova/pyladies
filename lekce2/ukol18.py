@@ -1,6 +1,21 @@
+
+
 print('Odpovídej jen "ano" nebo "ne".')
 šťastná = input('Jsi šťastná? ')
+
+if šťastná in ['ano', 'ne', 'ANO', 'NE']:
+    print('Díky.')
+else :
+    print('Máš odpovídat jen "ano" nebo "ne".')
+    quit()
+
 bohatá = input('jsi bohatá? ')
+
+if bohatá in ['ano', 'ne', 'ANO', 'NE']:
+    print('Díky, teď to vyhodnotíme.')
+else :
+    print('Máš odpovídat jen "ano" nebo "ne".')
+    quit()
 
 if šťastná == 'ano':
     if bohatá == 'ano':
