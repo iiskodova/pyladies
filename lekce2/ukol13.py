@@ -5,6 +5,7 @@ print('Kolik máš u sebe peněz?')
 money = input('Mám u sebe 1-1000 zlaťáků: ')
 if money.isdigit() != True : 
     print('šprýmaře jako ty tu nevidíme rádi!')
+    quit()
 
 else :
     peníze = int(money)
@@ -27,4 +28,3 @@ elif peníze >= 1001 and peníze <=99999:
     print('ty jsi opravdový boháč a jistě víš, pro co jsi přišel.tobě nemusím nic nabízet, povídej, co bys rád?')
 elif peníze >= 100000:
     print('hohó, ty si můžeš koupit celý obchod!')
-
