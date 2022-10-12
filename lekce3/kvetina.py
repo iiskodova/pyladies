@@ -28,9 +28,4 @@ while n > 5:
     if n > 40 and n < 0:
         pencolor('darkslategray1')
 
-
-
-
-
-
 exitonclick()
