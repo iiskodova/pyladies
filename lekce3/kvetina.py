@@ -6,7 +6,6 @@ pencolor('darkslategrey')
 
 while n > 5:
     for i in range (5):
-
         circle(n, 90)
         left(90)
         circle(n, 90)
@@ -29,3 +28,9 @@ while n > 5:
     if n > 40 and n < 0:
         pencolor('darkslategray1')
 
+
+
+
+
+
+exitonclick()
