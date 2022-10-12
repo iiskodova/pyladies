@@ -1,7 +1,7 @@
 from turtle import *
 
 size = 100
-color = 'purple'
+color = 'red'
 
 fillcolor(color)
 begin_fill()
