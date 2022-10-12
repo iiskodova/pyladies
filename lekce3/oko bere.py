@@ -12,7 +12,6 @@ while points < 21:
         break
     else:
         print('piš jen ano nebo ne')
-
 if points == 21:
     print('oko bere!')
 elif points > 21:
