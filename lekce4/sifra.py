@@ -1,16 +1,34 @@
-plaintext = input('vstupní text: ')
-key = (input('posun míst o: '))
-if key != int:
-    print(input('zadej celé číslo pro posun míst v šifře: '))
+while True:
+    plaintext = input('vstupní text: ')
+    if any(char.isdigit() for char in plaintext):
+        print('zadej pouze textový vstup')
+        continue
+    else:
+        break
+
+while True:
+    try:
+        key = int(input('posun míst o: '))
+    except ValueError:
+        print('zadej pouze celé kladné číslo')
+        continue
+    else:
+        break
+    
 key = int(key)
 
-length = len(plaintext)
+cipher = ''
+for i in plaintext:
+    if ord(i) == 32 or ord(i) == 9:
+        ciph = ord(i)
+    elif i.islower():
+        ciph = ord(i) + key
+        if ciph > 122:
+            ciph = (ciph - 122) + 96
+    else:
+        ciph = ord(i) + key
+        if ciph > 90:
+            ciph = (ciph - 90) + 64
+    cipher = cipher + chr(ciph)
 
-
-# while #počet nových znaků je nižší než znaků ve vstupu 
-# for i in plaintext:
-#     #vypiš každý
-
-
-# cipher = chr(ord() + key)
-# print(cipher)
+print(cipher)
