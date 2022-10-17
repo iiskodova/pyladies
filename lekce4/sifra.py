@@ -1,17 +1,15 @@
 while True:
     plaintext = input('vstupní text: ')
-    if any(char.isdigit() for char in plaintext):
-        print('zadej pouze textový vstup')
-        continue
-    else:
-        break
+    if not any(char.isdigit() for char in plaintext): 
+        break 
+    print('zadej pouze textový vstup')
+    
 
 while True:
     try:
         key = int(input('posun míst o: '))
     except ValueError:
         print('zadej pouze celé kladné číslo')
-        continue
     else:
         break
     
