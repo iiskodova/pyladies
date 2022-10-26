@@ -7,17 +7,12 @@
 
 rodne_cislo = input('Napiš své rodné číslo ve formátu xxxxxx/xxxx: ')
 
-try:
-    val = int(rodne_cislo[0:6])
-except ValueError:
-    print(False)
-    quit()
-
-try:
-    val = int(rodne_cislo[7:11])
-except ValueError:
-    print(False)
-    quit()
+for i in range(0, len(rodne_cislo)): 
+    if i == 6 and rodne_cislo[i] =='/': 
+        continue 
+    if not rodne_cislo[i].isdigit(): 
+        print(False)
+        quit()
 
 if (int(rodne_cislo[0:6]) + int(rodne_cislo[7:11]))%11 == 0:
     print(True)
