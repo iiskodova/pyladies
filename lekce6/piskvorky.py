@@ -29,7 +29,7 @@ print(tah(herni_pole, 2, 'x'))
 
 def tah_hrace(herni_pole, cislo_pole, symbol):
     while True:
-        pozice = int(input('Napiš číslo pole v rozmetí 1-20, na které chceš umístit symbol: '))
+        pozice = input('Napiš číslo pole v rozmetí 1-20, na které chceš umístit symbol: ')
         if not pozice.isnumeric():
             print('zadej číselnou hodnotu pole od 1 do 20: ')
             return False
