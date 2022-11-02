@@ -1,4 +1,10 @@
-herni_pole = '---xx---oo---'
+herni_pole = '--------------------'
+
+def ukaz_pole(herni_pole):
+    print(herni_pole)
+ukaz_pole(herni_pole)
+
+
 def vyhodnot():
     if 'xxx' in herni_pole:
         print('x')
@@ -23,17 +29,20 @@ print(tah(herni_pole, 2, 'x'))
 
 def tah_hrace(herni_pole, cislo_pole, symbol):
     while True:
-        pozice = '0'
-        while pozice not in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] or pozice == '':
-            pozice = input('Napiš číslo pole, na které chceš umístit symbol: ')
-            koord = seznam_tahu.get(int(pozice))
+        pozice = int(input('Napiš číslo pole v rozmetí 1-20, na které chceš umístit symbol: '))
+        if not pozice.isnumeric():
+            print('zadej číselnou hodnotu pole od 1 do 20: ')
+            return False
+        elif pozice not in range(1,21):
+            print('zadej číselnou hodnotu pole od 1 do 20: ')
+            return False
+        elif pozice != '-':
+            print('toto pole je již zabrané, vyber si jiné: ')
+            return False
+        elif pozice >= 1 and pozice <= 20 and herni_pole[pozice] == '-':
+            return True
+print(tah_hrace())
         
-        if herni_pole[koord[0]] == '-':
-            herni_pole[koord[0]] == symbol
-            print(herni_pole)
-            return herni_pole
-        else:
-            print('Tato pozice není volná, hrej znovu.')
 
 # def seznam(herni_pole):
 #     seznam_tahu = {}
