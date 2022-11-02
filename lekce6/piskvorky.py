@@ -36,10 +36,10 @@ def tah_hrace(herni_pole, cislo_pole, symbol):
         elif pozice not in range(1,21):
             print('zadej číselnou hodnotu pole od 1 do 20: ')
             return False
-        elif pozice != '-':
+        elif herni_pole[pozice] != '-':
             print('toto pole je již zabrané, vyber si jiné: ')
             return False
-        elif pozice >= 1 and pozice <= 20 and herni_pole[pozice] == '-':
+        else:
             return True
 print(tah_hrace())
         
