@@ -1,15 +1,10 @@
-
 def format_check():
-    while True:
-        rodne_cislo = input('Napiš své rodné číslo ve formátu xxxxxx/xxxx: ')
-        if len(rodne_cislo) == 11:
-            if rodne_cislo[6] == '/':
-                numbers = rodne_cislo[:6] + rodne_cislo[7:]
-                try:
-                    if int(numbers)%11 == 0:
-                        return
-                except ValueError:
-                    print('Zkus to znovu!')
+    numbers = rodne_cislo[:6] + rodne_cislo[7:]
+    try:
+        if int(numbers)%11 == 0:
+            return
+    except ValueError:
+        print('zadané číslo není dělitelné 11')
 format_check()
 
 def gender_check():
@@ -30,12 +25,20 @@ def birth_date():
     return(day, month, year)
 print(birth_date())
 
-def kontrola():
-    rodne_cislo = ''
-    while True:
-        rodne_cislo = input('Napiš své rodné číslo ve formátu xxxxxx/xxxx: ')
-
-
 
 if __name__ == "__main__":
-    kontrola()
+    while True:
+        rodne_cislo = input('Napiš své rodné číslo ve formátu xxxxxx/xxxx: ')
+        if len(rodne_cislo) == 11:
+            print('délka je správně')
+        else:
+            print('zadané číslo bylo moc krátké')
+            continue
+        if rodne_cislo[6] == '/':
+            print('lomítko je správně')
+        else:
+            print('v zadaném čísle chybí lomítko')
+        format_check()
+        gender_check()
+        birth_date()
+
