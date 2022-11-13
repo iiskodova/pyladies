@@ -42,6 +42,7 @@ def piskvorky1d():
         kontrola = vyhodnot(herni_pole)
         if kontrola == player_symbol:
             print('vyhrál jsi!')
+            break
         if kontrola == '!':
             print('remíza!')
             break
@@ -50,6 +51,7 @@ def piskvorky1d():
         kontrola = vyhodnot(herni_pole)
         if kontrola == comp_symbol:
             print('vyhrál počítač')
+            break
         if kontrola == '!':
             print('remíza!')
             break
