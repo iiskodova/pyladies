@@ -16,7 +16,7 @@ def play(word):
     print(display_hangman(tries))
     print(word_completion)
     print('\n')
-    while not guessed and tries < 9:
+    while not guessed and tries < 8:
         guess = input('Zadej hádané písmeno: ').upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
@@ -43,7 +43,7 @@ def play(word):
         print('\n')
     if guessed:
         print('Gratuluji, uhodl jsi!')
-    else:
+    if tries == 8:
         print('Bohužel už visíš!')
 
 def hangman():
@@ -53,5 +53,5 @@ def hangman():
         word = get_word()
         play(word)
 
-if __name__ == 'main':
+if __name__ == '__main__':
     hangman()
