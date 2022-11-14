@@ -1,0 +1,57 @@
+import random
+from obrazky import display_hangman
+
+def get_word():
+    words = ['klášter', 'makovice', 'slunečník', 'plejtvák']
+    word = random.choice(words)
+    return word.upper()
+
+def play(word):
+    word_completion = '_' * len(word)
+    guessed = False
+    guessed_letters = []
+    guessed_words = []
+    tries = 0
+    print('Hrajeme šibenici!')
+    print(display_hangman(tries))
+    print(word_completion)
+    print('\n')
+    while not guessed and tries < 9:
+        guess = input('Zadej hádané písmeno: ').upper()
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                print(f'Písmeno {guess} jsi už hádal.')
+            elif guess not in word:
+                print(f'Písmeno {guess} v hádaném slově není.')
+                tries += 1
+                guessed_letters.append(guess)
+            else:
+                print(f'Skvělé, písmeno {guess} je v hledaném slově!')
+                guessed_letters.append(guess)
+                word_as_list = list(word_completion)
+                indices = [i for i, letter in enumerate(word) if letter == guess]
+                for index in indices:
+                    word_as_list[index] = guess
+                word_completion = ''.join(word_as_list)
+                if '_' not in word_completion:
+                    guessed = True
+
+        else:
+            print('neplatný vstup')
+        print(display_hangman(tries))
+        print(word_completion)
+        print('\n')
+    if guessed:
+        print('Gratuluji, uhodl jsi!')
+    else:
+        print('Bohužel už visíš!')
+
+def hangman():
+    word = get_word()
+    play(word)
+    while input('Chceš hrát znovu? (A/N): ').upper == 'A':
+        word = get_word()
+        play(word)
+
+if __name__ == 'main':
+    hangman()
