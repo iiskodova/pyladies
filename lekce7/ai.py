@@ -1,4 +1,5 @@
 import random
+from move import tah
 
 def tah_pocitace(herni_pole, comp_symbol):
     while True:
