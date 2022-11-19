@@ -14,6 +14,14 @@ def guess_input():
     guess = input('Zadej hádané písmeno: ').upper()
     return guess
 
+def completion(word, guess, word_completion):
+    word_as_list = list(word_completion)
+    indices = [i for i, letter in enumerate(word) if letter == guess]
+    for index in indices:
+        word_as_list[index] = guess
+    word_completion = ''.join(word_as_list)
+    return word_completion
+
 def play(word):
     word_completion = '_' * len(word)
     guessed = False
@@ -21,7 +29,6 @@ def play(word):
     tries = 0
     print('Hrajeme šibenici!')
     print(display_hangman(tries))
-    print(word_completion)
     print('\n')
     while not guessed and tries < 8:
         guess = guess_input()
@@ -35,18 +42,14 @@ def play(word):
             else:
                 print(f'Skvělé, písmeno {guess} je v hledaném slově!')
                 guessed_letters.append(guess)
-                word_as_list = list(word_completion)
-                indices = [i for i, letter in enumerate(word) if letter == guess]
-                for index in indices:
-                    word_as_list[index] = guess
-                word_completion = ''.join(word_as_list)
-                if '_' not in word_completion:
+                word_completion = completion(word, guess, word_completion)
+                if '_' not in completion(word, guess, word_completion):
                     guessed = True
 
         else:
             print('neplatný vstup')
         print(display_hangman(tries))
-        print(word_completion)
+        print(completion(word, guess, word_completion))
         print('\n')
     if guessed:
         print('Gratuluji, uhodl jsi!')
