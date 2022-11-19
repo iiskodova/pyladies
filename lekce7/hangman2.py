@@ -6,18 +6,25 @@ def get_word():
     word = random.choice(words)
     return word.upper()
 
+def game(word):
+    word = get_word()
+    play(word)
+
+def guess_input():
+    guess = input('Zadej hádané písmeno: ').upper()
+    return guess
+
 def play(word):
     word_completion = '_' * len(word)
     guessed = False
     guessed_letters = []
-    guessed_words = []
     tries = 0
     print('Hrajeme šibenici!')
     print(display_hangman(tries))
     print(word_completion)
     print('\n')
     while not guessed and tries < 8:
-        guess = input('Zadej hádané písmeno: ').upper()
+        guess = guess_input()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 print(f'Písmeno {guess} jsi už hádal.')
@@ -49,9 +56,8 @@ def play(word):
 def hangman():
     word = get_word()
     play(word)
-    while input('Chceš hrát znovu? (A/N): ').upper == 'A':
-        word = get_word()
-        play(word)
+    while input('Chceš hrát znovu? (A/N): ').upper() == 'A':
+        game(word)
 
 if __name__ == '__main__':
     hangman()
