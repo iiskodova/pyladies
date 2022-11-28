@@ -20,8 +20,12 @@ class Character:
                 self.lives -= 5
                 print(f'{self.type} lost 5 lives, he has {self.lives} now!')
             if weapon == 'sword':
-                self.lives -= 4
-                print(f'{self.type} lost 4 lives, he has {self.lives} now!')
+                if self.shield:
+                    self.lives = self.lives - (4 - self.shield)
+                    print(f'{self.type} blocked some damage with shield, he has {self.lives} now!')
+                else:
+                    self.lives -= 4
+                    print(f'{self.type} lost 4 lives, he has {self.lives} lives now!')
         else:
             print(f'{self.type} is dead!')
 
@@ -31,13 +35,13 @@ class Character:
             potion = random.choice(pot)
             if potion == 'small potion':
                 self.lives += 5
-                print(f'{self.type} drank small potion and has {self.lives} now!')
+                print(f'{self.type} drank small potion and has {self.lives} lives now!')
             if potion == 'big potion':
                 self.lives += 10
-                print(f'{self.type} drank big potion and has {self.lives} now!')
+                print(f'{self.type} drank big potion and has {self.lives} lives now!')
             if potion == 'poison':
                 self.lives -= 3
-                print(f'{self.type} drank poison and has {self.lives} now!')
+                print(f'{self.type} drank poison and has {self.lives} lives now!')
         else:
             print(f'{self.type} is dead!')
 
@@ -46,7 +50,7 @@ class Sorceress(Character):
         if self.is_alive():
             if weapon == 'spell':
                 self.lives -= 1
-                print(f'{self.type} lost 1 live, she has {self.lives} now!')
+                print(f'{self.type} lost 1 life, she has {self.lives} now!')
             if weapon == 'sword':
                 self.lives -= 5
                 print(f'{self.type} lost 4 lives, she has {self.lives} now!')
@@ -58,13 +62,12 @@ class Sorceress(Character):
 
 class Barbar(Character):
     def __init__(self, type):
-        self.lives = 100
-        self.type = type
         type = type.upper()
+        self.shield = 2
         super().__init__(type)
 
     def battle_stance(self):
-        print(f'{self.type} clashes his swords and roars')
+        print(f'{self.type} clashes his sword and shiel and roars')
 
 
 mage = Sorceress('Mage')
